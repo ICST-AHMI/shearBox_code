@@ -9,7 +9,7 @@
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 282.0, 79.0, 783.0, 761.0 ],
+		"rect" : [ 462.0, 79.0, 563.0, 783.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -37,6 +37,33 @@
 		"style" : "",
 		"subpatcher_template" : "",
 		"boxes" : [ 			{
+				"box" : 				{
+					"id" : "obj-9",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 4,
+					"outlettype" : [ "", "", "", "" ],
+					"patching_rect" : [ 62.041641, 569.0, 50.5, 22.0 ],
+					"style" : "",
+					"text" : "jit.3m"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-52",
+					"linecount" : 2,
+					"maxclass" : "message",
+					"numinlets" : 2,
+					"numoutlets" : 1,
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 158.541641, 640.044739, 75.0, 35.0 ],
+					"style" : "",
+					"text" : "pixelcount 332"
+				}
+
+			}
+, 			{
 				"box" : 				{
 					"id" : "obj-23",
 					"maxclass" : "number",
@@ -1345,8 +1372,8 @@
 , 							{
 								"name" : "newobjYellow-1",
 								"default" : 								{
-									"fontsize" : [ 12.059008 ],
-									"accentcolor" : [ 0.82517, 0.78181, 0.059545, 1.0 ]
+									"accentcolor" : [ 0.82517, 0.78181, 0.059545, 1.0 ],
+									"fontsize" : [ 12.059008 ]
 								}
 ,
 								"parentstyle" : "",
@@ -2452,7 +2479,7 @@
 ,
 									"style" : "",
 									"text" : "autopattr",
-									"varname" : "u178000850"
+									"varname" : "u952000565"
 								}
 
 							}
@@ -2935,8 +2962,8 @@
 , 							{
 								"name" : "newobjYellow-1",
 								"default" : 								{
-									"fontsize" : [ 12.059008 ],
-									"accentcolor" : [ 0.82517, 0.78181, 0.059545, 1.0 ]
+									"accentcolor" : [ 0.82517, 0.78181, 0.059545, 1.0 ],
+									"fontsize" : [ 12.059008 ]
 								}
 ,
 								"parentstyle" : "",
@@ -3536,7 +3563,7 @@
 ,
 																	"style" : "",
 																	"text" : "autopattr",
-																	"varname" : "u613000849"
+																	"varname" : "u338000564"
 																}
 
 															}
@@ -5049,8 +5076,8 @@
 , 											{
 												"name" : "newobjYellow-1",
 												"default" : 												{
-													"fontsize" : [ 12.059008 ],
-													"accentcolor" : [ 0.82517, 0.78181, 0.059545, 1.0 ]
+													"accentcolor" : [ 0.82517, 0.78181, 0.059545, 1.0 ],
+													"fontsize" : [ 12.059008 ]
 												}
 ,
 												"parentstyle" : "",
@@ -5216,8 +5243,8 @@
 , 							{
 								"name" : "newobjYellow-1",
 								"default" : 								{
-									"fontsize" : [ 12.059008 ],
-									"accentcolor" : [ 0.82517, 0.78181, 0.059545, 1.0 ]
+									"accentcolor" : [ 0.82517, 0.78181, 0.059545, 1.0 ],
+									"fontsize" : [ 12.059008 ]
 								}
 ,
 								"parentstyle" : "",
@@ -5319,7 +5346,7 @@
 ,
 					"style" : "",
 					"text" : "autopattr",
-					"varname" : "u036000851"
+					"varname" : "u243000566"
 				}
 
 			}
@@ -5369,7 +5396,7 @@
 					"numinlets" : 0,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 93.21785, 492.392273, 46.0, 22.0 ],
+					"patching_rect" : [ 219.0, 494.392273, 46.0, 22.0 ],
 					"style" : "",
 					"text" : "r mask"
 				}
@@ -5385,7 +5412,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "jit_matrix", "" ],
-					"patching_rect" : [ 35.21785, 520.5, 77.0, 23.0 ],
+					"patching_rect" : [ 125.791641, 520.5, 77.0, 23.0 ],
 					"style" : "",
 					"text" : "jit.op @op -"
 				}
@@ -5484,7 +5511,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 4,
 					"outlettype" : [ "float", "float", "float", "float" ],
-					"patching_rect" : [ 72.541641, 608.044739, 76.0, 22.0 ],
+					"patching_rect" : [ 72.541641, 611.044739, 76.0, 22.0 ],
 					"style" : "",
 					"text" : "unpack f f f f"
 				}
@@ -5582,21 +5609,6 @@
 					"patching_rect" : [ 91.541641, 640.044739, 63.0, 21.0 ],
 					"style" : "",
 					"text" : "* 1228800."
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"fontname" : "Arial",
-					"fontsize" : 15.411553,
-					"id" : "obj-38",
-					"maxclass" : "newobj",
-					"numinlets" : 1,
-					"numoutlets" : 4,
-					"outlettype" : [ "", "", "", "" ],
-					"patching_rect" : [ 53.541641, 573.356079, 76.0, 26.0 ],
-					"style" : "",
-					"text" : "jit.3m"
 				}
 
 			}
@@ -5918,7 +5930,7 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-11",
-					"items" : [ "Integrierte iSight-Kamera", ",", "FaceTime HD Camera" ],
+					"items" : [ "Built-in iSight", ",", "FaceTime HD Camera" ],
 					"maxclass" : "umenu",
 					"numinlets" : 1,
 					"numoutlets" : 3,
@@ -6560,15 +6572,6 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-35", 0 ],
-					"disabled" : 0,
-					"hidden" : 0,
-					"source" : [ "obj-32", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
 					"destination" : [ "obj-46", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
@@ -6578,16 +6581,25 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-38", 0 ],
+					"destination" : [ "obj-88", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
-					"source" : [ "obj-35", 0 ]
+					"source" : [ "obj-32", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-88", 0 ],
+					"destination" : [ "obj-9", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-32", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-9", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
 					"source" : [ "obj-35", 0 ]
@@ -6600,15 +6612,6 @@
 					"disabled" : 0,
 					"hidden" : 0,
 					"source" : [ "obj-37", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-65", 0 ],
-					"disabled" : 0,
-					"hidden" : 0,
-					"source" : [ "obj-38", 1 ]
 				}
 
 			}
@@ -6874,6 +6877,15 @@
 			}
 , 			{
 				"patchline" : 				{
+					"destination" : [ "obj-65", 0 ],
+					"disabled" : 0,
+					"hidden" : 0,
+					"source" : [ "obj-9", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-72", 0 ],
 					"disabled" : 0,
 					"hidden" : 0,
@@ -6920,13 +6932,13 @@
  ],
 		"dependency_cache" : [ 			{
 				"name" : "settings.json",
-				"bootpath" : "/Volumes/Arbeiten/01_projekte/120701_ICST_ZHDK/measurements/contact area touch-box",
+				"bootpath" : "~/Arbeiten/01_projekte/150914_ICST/01_projects/shearBox/code/max/ContactShearBox",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "mean.js",
-				"bootpath" : "/Volumes/Arbeiten/01_projekte/120701_ICST_ZHDK/measurements/contact area touch-box",
+				"bootpath" : "~/Arbeiten/01_projekte/150914_ICST/01_projects/shearBox/code/max/ContactShearBox",
 				"type" : "TEXT",
 				"implicit" : 1
 			}
@@ -6944,8 +6956,8 @@
 , 			{
 				"name" : "newobjYellow-1",
 				"default" : 				{
-					"fontsize" : [ 12.059008 ],
-					"accentcolor" : [ 0.82517, 0.78181, 0.059545, 1.0 ]
+					"accentcolor" : [ 0.82517, 0.78181, 0.059545, 1.0 ],
+					"fontsize" : [ 12.059008 ]
 				}
 ,
 				"parentstyle" : "",
