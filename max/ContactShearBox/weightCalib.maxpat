@@ -5,11 +5,11 @@
 			"major" : 7,
 			"minor" : 1,
 			"revision" : 0,
-			"architecture" : "x64",
+			"architecture" : "x86",
 			"modernui" : 1
 		}
 ,
-		"rect" : [ 318.0, 141.0, 735.0, 646.0 ],
+		"rect" : [ 318.0, 141.0, 595.0, 646.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -282,7 +282,7 @@
 					"presentation_rect" : [ 0.0, 0.0, 774.0, 20.0 ],
 					"spacing_y" : 0.0,
 					"style" : "",
-					"tabs" : [ "weight_Z", "shearUP", "shearDOWN", "shearLEFT", "shearRIGHT" ],
+					"tabs" : [ "weight_Z", "shearUP", "shearDOWN", "shearRIGHT", "shearLEFT" ],
 					"valign" : 2
 				}
 
@@ -737,6 +737,12 @@
  ],
 		"dependency_cache" : [ 			{
 				"name" : "areaCalib.maxpat",
+				"bootpath" : "~/Arbeiten/01_projekte/150914_ICST/01_projects/shearBox/code/max/ContactShearBox",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "SMean.maxpat",
 				"bootpath" : "~/Arbeiten/01_projekte/150914_ICST/01_projects/shearBox/code/max/ContactShearBox",
 				"type" : "JSON",
 				"implicit" : 1
