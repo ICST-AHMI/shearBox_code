@@ -30,11 +30,14 @@ thresholds = [(83, 100, -4, 9, -16, 8)]
 
 sensor.reset()
 sensor.set_pixformat(sensor.RGB565)
-sensor.set_framesize(sensor.QVGA)
-sensor.skip_frames(time = 2000)
+sensor.set_framesize(sensor.QQVGA)
+sensor.skip_frames(time = 5000)
 sensor.set_auto_gain(False) # must be turned off for color tracking
 sensor.set_auto_whitebal(False) # must be turned off for color tracking
 clock = time.clock()
+
+sensor.set_auto_exposure(False, exposure_us=5000) # make smaller to go faster
+
 
 # Only blobs that with more pixels than "pixel_threshold" and more area than "area_threshold" are
 # returned by "find_blobs" below. Change "pixels_threshold" and "area_threshold" if you change the
@@ -52,22 +55,21 @@ while(True):
     # distortion in an image. Increase the strength below until lines
     # are straight in the view.
     # Zoom in (higher) or out (lower) until you see enough of the image.
-    # img = sensor.snapshot().lens_corr(strength = 2.4, zoom = 1.0)
-    img = sensor.snapshot()
+    img = sensor.snapshot().lens_corr(strength = 2.4, zoom = 1.0)
     # disable the IR pin once the sensor has finished.
     ir_led_pin.off()
 
-    #for blob in img.find_blobs(thresholds, pixels_threshold=200, area_threshold=200):
-        #img.draw_rectangle(blob.rect())
-        #img.draw_cross(blob.cx(), blob.cy())
+    for blob in img.find_blobs(thresholds, pixels_threshold=200, area_threshold=200):
+        img.draw_rectangle(blob.rect())
+        img.draw_cross(blob.cx(), blob.cy())
         #print("pixels", int(blob.pixels()))
         #print("area", float(blob.area()))
 
-    #img.draw_line(0, img.height() // 4 * 1, img.width(), img.height() // 4 * 1, color = (255, 0, 0), size = 30, thickness = 1)
-    #img.draw_line(0, img.height() // 4 * 2, img.width(), img.height() // 4 * 2, color = (255, 0, 0), size = 30, thickness = 1)
-    #img.draw_line(0, img.height() // 4 * 3, img.width(), img.height() // 4 * 3, color = (255, 0, 0), size = 30, thickness = 1)
-    #img.draw_line(img.width() // 4 * 1, 0, img.width() // 4 * 1, img.height(), color = (0, 255, 0), size = 30, thickness = 1)
-    #img.draw_line(img.width() // 4 * 2, 0, img.width() // 4 * 2, img.height(), color = (0, 255, 0), size = 30, thickness = 1)
-    #img.draw_line(img.width() // 4 * 3, 0, img.width() // 4 * 3, img.height(), color = (0, 255, 0), size = 30, thickness = 1)
+    img.draw_line(0, img.height() // 4 * 1, img.width(), img.height() // 4 * 1, color = (255, 0, 0), size = 30, thickness = 1)
+    img.draw_line(0, img.height() // 4 * 2, img.width(), img.height() // 4 * 2, color = (255, 0, 0), size = 30, thickness = 1)
+    img.draw_line(0, img.height() // 4 * 3, img.width(), img.height() // 4 * 3, color = (255, 0, 0), size = 30, thickness = 1)
+    img.draw_line(img.width() // 4 * 1, 0, img.width() // 4 * 1, img.height(), color = (0, 255, 0), size = 30, thickness = 1)
+    img.draw_line(img.width() // 4 * 2, 0, img.width() // 4 * 2, img.height(), color = (0, 255, 0), size = 30, thickness = 1)
+    img.draw_line(img.width() // 4 * 3, 0, img.width() // 4 * 3, img.height(), color = (0, 255, 0), size = 30, thickness = 1)
 
     #print("fps", clock.fps())

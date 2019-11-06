@@ -64,6 +64,8 @@
 // PORTB ^= 1 << PORTB4;
 // which inverts the state of pin 12 at each execution of ISR(ADC_vect).
 //
+//  Change history:
+//      19.03.2019  MF    cleanup code so it works with Arduino MEGA
 
 
 #include <avr/io.h>
@@ -116,9 +118,6 @@ int ADCValue;
 
 int ADInterrupCounter = 0;
 
-void setup();
-void loop();
-
 void setup()
 { 
   //Create a serial connection to display the data on the terminal.
@@ -141,7 +140,7 @@ void setup()
 
   DDRB |= 1 << PORTB4;  // the same as pinMode(12, OUTPUT);
   
-  cli(); // disable interrupts while messing with their settings
+  noInterrupts(); // disable interrupts while messing with their settings
   
   /********** ADC setup *********************************************************/
     
@@ -156,8 +155,10 @@ void setup()
   //Control and Status Register A
   ADCSRA = 0;
   ADCSRB = 0; // Free-running mode
-  
-  PRR &= ~bit(PRADC);      // Disable ADC power reduction
+
+  // Disable ADC power reduction
+  //PRR &= ~bit(PRADC);     // old code
+  power_adc_disable();  
   
   //Multiplexer Selection Channel
   ADMUX = 0<<ADLAR; // right-aligned
@@ -226,7 +227,7 @@ void setup()
 
   /******************************************************************************/
   
-  sei(); // turn interrupts back on
+  interrupts (); // turn interrupts back on
 
   ADCSRA |= 1<<ADSC;       // Conversion started  
 }
@@ -260,16 +261,17 @@ void loop()
   //Serial.println("nextframe");
 }
 
-//interrupt function call
+//interrupt function call if ADC conversion is done
 ISR(ADC_vect)
 {
+  Serial.println("nextframe");
   ADInterrupCounter++;
   if(ADInterrupCounter >= 5){
     ADInterrupCounter = 0;
     
     //sendSPI();
     
-    cli();// disable interrupts while messing with their settings
+    noInterrupts();// disable interrupts while messing with their settings
   
     ADCValue = ADCL;       // get low register first
     ADCValue += ADCH << 8; // and then add the high register
@@ -340,7 +342,7 @@ ISR(ADC_vect)
     // altrimenti lo abbassa.
     PORTB ^= 1 << PORTB4;  // the same as digitalWrite(12, HIGH if LOW or LOW if HIGH)
     
-    sei();// turn interrupts back on
+    interrupts();// turn interrupts back on
   }
 }
 
@@ -401,4 +403,3 @@ void writeRegister(char registerAddress, char value){
   //Set the Chip Select pin high to signal the end of an SPI packet.
   digitalWrite(CS, HIGH);
 }
-
